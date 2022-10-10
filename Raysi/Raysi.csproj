@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Shaders\BasicTriangle.glsl" />
+    <None Remove="Shaders\SimpleFrag.glsl" />
+    <None Remove="Shaders\SimpleVert.glsl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Shaders\BasicTriangle.glsl" />
+    <EmbeddedResource Include="Shaders\SimpleFrag.glsl" />
+    <EmbeddedResource Include="Shaders\SimpleVert.glsl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GLGraphics" Version="1.0.6" />
+    <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="7.24.0" />
+    <PackageReference Include="SharpGLTF.Core" Version="1.0.0-alpha0022" />
+    <PackageReference Include="SharpGLTF.Toolkit" Version="1.0.0-alpha0022" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+    <PackageReference Include="System.IO" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Shaders\SimpleFrag.glsl" />
+    <Resource Include="Shaders\BasicTriangle.glsl" />
+    <Resource Include="Shaders\SimpleVert.glsl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="cube.glb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="kloppenheim_02.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
